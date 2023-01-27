@@ -3,12 +3,12 @@ import {
   Get,
   Post,
   Patch,
+  Put,
   Delete,
   Body,
   Param,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
-import { UserEntity } from '../entities/user.entity';
 import { RegisterUserDto } from './dto/registerUser.dto';
 
 @Controller('users')
@@ -21,7 +21,7 @@ export class UsersController {
   }
 
   @Get(':id')
-  async findById(@Param() id: string) {
+  async findById(@Param('id') id: string) {
     return this.usersService.findById(id);
   }
 
